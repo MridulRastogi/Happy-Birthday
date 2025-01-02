@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.container {
+    position: relative;
+}
+
+.card {
+    background-color: yellow;/* rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: #FFA500; /* Orange color */
+}
+
+
+p {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.celebrate-btn {
+    background-color: #ff4081;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.celebrate-btn:hover {
+    background-color: #c2185b;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .celebrate-btn {
+        font-size: 1.1em;
+        padding: 12px 30px;
+    }
+}
+
+/* Confetti animation */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1000;
+}
+
+.confetti.active {
+    display: block;
+    animation: confetti 2s infinite;
+}
+
+@keyframes confetti {
+    0% { transform: rotate(0deg) translate(0, 0); opacity: 1; }
+    25% { transform: rotate(45deg) translate(20px, 20px); opacity: 0.8; }
+    50% { transform: rotate(90deg) translate(40px, 40px); opacity: 0.6; }
+    75% { transform: rotate(135deg) translate(60px, 60px); opacity: 0.4; }
+    100% { transform: rotate(180deg) translate(80px, 80px); opacity: 0.2; }
+}
+
+/* Firecracker animation */
+.firecrackers {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firecracker {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffeb3b;
+    animation: firecracker-animation 2s linear infinite;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px 3px rgba(255, 235, 59, 0.6);
+}
+
+.firecracker:nth-child(even) {
+    background-color: #ff4081; /* Pink firecracker */
+}
+
+.firecracker:nth-child(odd) {
+    background-color: #4caf50; /* Green firecracker */
+}
+
+@keyframes firecracker-animation {
+    0% {
+        bottom: -50px;
+        opacity: 1;
+        transform: scale(1) translateX(-50%);
+    }
+    50% {
+        bottom: 50%;
+        opacity: 0.8;
+        transform: scale(1.5);
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: scale(0);
+    }
+}
